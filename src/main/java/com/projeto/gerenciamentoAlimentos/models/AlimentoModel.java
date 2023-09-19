@@ -1,23 +1,37 @@
 package com.projeto.gerenciamentoAlimentos.models;
 
 import javax.persistence.*;
+
+import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
 @Entity
-@Table(name = "tb-foods")
+@Table(name = "tbFoods")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id_alimento")
-public class AlimentoModel {
+@EqualsAndHashCode(of = "idAlimento")
+public class AlimentoModel implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_alimento;
+    private int idAlimento;
     private String nome;
     private String categoria;
     private int calorias;
     private double proteina;
     private double carboidratos;
     private double gordura;
+
+    public AlimentoModel(AlimentoDTO alimentoDTO) {
+        this.nome = alimentoDTO.getNome();
+        this.categoria = alimentoDTO.getCategoria();
+        this.carboidratos = alimentoDTO.getCarboidratos();
+        this.proteina = alimentoDTO.getProteina();
+        this.gordura = alimentoDTO.getGordura();
+        this.calorias = alimentoDTO.getCalorias();
+    }
 }
