@@ -25,4 +25,8 @@ public class UsuarioService {
     public Optional<UsuarioModel> buscaId(int id) {
         return usuarioRepository.findById(id);
     }
+    @Transactional
+    public void delete(UsuarioModel usuarioModel) {
+        usuarioRepository.delete(usuarioModel);
+    }
 }

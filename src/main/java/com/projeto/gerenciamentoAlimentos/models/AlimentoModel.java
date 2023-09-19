@@ -3,16 +3,14 @@ package com.projeto.gerenciamentoAlimentos.models;
 import javax.persistence.*;
 
 import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name = "tbFoods")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "idAlimento")

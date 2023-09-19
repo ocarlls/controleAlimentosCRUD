@@ -5,7 +5,9 @@ import com.projeto.gerenciamentoAlimentos.repositories.AlimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AlimentoService {
@@ -21,5 +23,13 @@ public class AlimentoService {
 
     public List<AlimentoModel> getAll() {
         return alimentoRepository.findAll();
+    }
+
+    public Optional<AlimentoModel> buscaId(int id) {
+        return alimentoRepository.findById(id);
+    }
+    @Transactional
+    public void delete(AlimentoModel alimentoModel) {
+        alimentoRepository.delete(alimentoModel);
     }
 }

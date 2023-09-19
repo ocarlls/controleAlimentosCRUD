@@ -1,6 +1,7 @@
 package com.projeto.gerenciamentoAlimentos.controllers;
 
 import com.projeto.gerenciamentoAlimentos.dtos.UsuarioDTO;
+import com.projeto.gerenciamentoAlimentos.models.AlimentoModel;
 import com.projeto.gerenciamentoAlimentos.models.UsuarioModel;
 import com.projeto.gerenciamentoAlimentos.services.UsuarioService;
 import org.springframework.beans.BeanUtils;
@@ -39,9 +40,26 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioModelOptional);
     }
 
-//    @DeleteMapping("delete/{id}")
-//    public ResponseEntity<Object> deletarUsuario(@PathVariable(value = "id") int id){
-//        Optional<UsuarioModel> usuarioModelOptional = usuarioService.buscaId(id);
-//        usuarioService.buscaId(id);
-//    }
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Object> deletarUsuario(@PathVariable(value = "id") int id){
+        Optional<UsuarioModel> usuarioModelOptional = usuarioService.buscaId(id);
+        if (!usuarioModelOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado na base de dados");
+        }
+        usuarioService.delete(usuarioModelOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Usuário deletado com sucesso!!");
+    }
+
+    @PutMapping("editar/{id}")
+    public ResponseEntity<Object> editarUsuario(@PathVariable(value = "id") int id,
+                                                @RequestBody @Valid UsuarioDTO usuarioDTO){
+        Optional<UsuarioModel> usuarioModelOptional = usuarioService.buscaId(id);
+        if (!usuarioModelOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado na base de dados");
+        }
+        var usuarioModel = new UsuarioModel();
+        BeanUtils.copyProperties(usuarioDTO, usuarioModel);
+        usuarioModel.setId_usuario(usuarioModelOptional.get().getId_usuario());
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.save(usuarioModel));
+    }
 }

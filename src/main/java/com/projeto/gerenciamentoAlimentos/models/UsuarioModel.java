@@ -1,10 +1,7 @@
 package com.projeto.gerenciamentoAlimentos.models;
 
 import com.projeto.gerenciamentoAlimentos.dtos.UsuarioDTO;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +9,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "tbUsuarios")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuarioModel implements Serializable {
