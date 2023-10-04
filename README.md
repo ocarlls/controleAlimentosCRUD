@@ -2,7 +2,9 @@
 Este é um projeto de API REST desenvolvido com o objetivo principal de aprender e consolidar os conceitos de arquitetura de camadas e API REST utilizando tecnologias como Spring Boot, Hibernate, Lombok e PostgreSQL. O projeto consiste em um sistema de gerenciamento de usuários e alimentos.
 
 ## Funcionalidades
-O sistema possui duas entidades principais:
+<img src="/src/main/resources/pics/casoDeUso.png" alt="Diagrama de Caso de Uso">
+
+Atualmente sistema possui duas entidades principais:
 
 ### Usuários
 
