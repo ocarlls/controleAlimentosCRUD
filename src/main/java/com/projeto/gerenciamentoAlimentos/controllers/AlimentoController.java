@@ -21,17 +21,17 @@ public class AlimentoController {
     @Autowired
     AlimentoServiceImpl service;
 
-    @PostMapping("novo")
+    @PostMapping
     public ResponseEntity<Object> iserirComida(@RequestBody @Valid AlimentoDTO alimentoDTO){
         var alimentoModel = new Alimento(alimentoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(alimentoModel));
     }
 
-    @GetMapping("todos")
+    @GetMapping
     public ResponseEntity<List<Alimento>> listarTodos(){
         return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
     }
-    @GetMapping("busca/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Object> listaUmAlimento(@PathVariable(value = "id") int id) {
         Optional<Alimento> alimentoModelOptional = service.getById(id);
         if(!alimentoModelOptional.isPresent()){
@@ -40,7 +40,7 @@ public class AlimentoController {
         return ResponseEntity.status(HttpStatus.OK).body(alimentoModelOptional);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deletaAlimento(@PathVariable(value = "id") int id) {
         Optional<Alimento> alimentoModelOptional = service.getById(id);
         if(!alimentoModelOptional.isPresent()){
@@ -50,7 +50,7 @@ public class AlimentoController {
         return ResponseEntity.status(HttpStatus.OK).body("Alimento deletado com sucesso!!");
     }
 
-    @PutMapping("editar/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object> editarAlimento(@PathVariable(value = "id") int id,
                                                 @RequestBody @Valid AlimentoDTO alimentoDTO){
         Optional<Alimento> alimentoModelOptional = service.getById(id);
