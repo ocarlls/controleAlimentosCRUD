@@ -1,7 +1,7 @@
 package com.projeto.gerenciamentoAlimentos.repositories;
 
-import com.projeto.gerenciamentoAlimentos.models.UsuarioModel;
+import com.projeto.gerenciamentoAlimentos.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UsuarioRepository extends JpaRepository<UsuarioModel, Integer> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 }

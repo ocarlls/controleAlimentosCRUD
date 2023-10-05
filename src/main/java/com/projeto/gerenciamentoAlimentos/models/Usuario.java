@@ -6,19 +6,17 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "tbUsuarios")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class UsuarioModel implements Serializable {
+public class Usuario implements Serializable {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_usuario;
     private String nome;
     private String email;
 
-    public UsuarioModel(UsuarioDTO usuarioDTO) {
+    public Usuario(UsuarioDTO usuarioDTO) {
         this.nome = usuarioDTO.getNome();
         this.email = usuarioDTO.getEmail();
     }

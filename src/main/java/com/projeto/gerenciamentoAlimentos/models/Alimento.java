@@ -7,24 +7,21 @@ import lombok.*;
 
 import java.io.Serializable;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "tbFoods")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "idAlimento")
-public class AlimentoModel implements Serializable {
+public class Alimento implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAlimento;
     private String nome;
     private String categoria;
-    private int calorias;
-    private double proteina;
-    private double carboidratos;
-    private double gordura;
+    private float calorias;
+    private float proteina;
+    private float carboidratos;
+    private float gordura;
 
-    public AlimentoModel(AlimentoDTO alimentoDTO) {
+    public Alimento(AlimentoDTO alimentoDTO) {
         this.nome = alimentoDTO.getNome();
         this.categoria = alimentoDTO.getCategoria();
         this.carboidratos = alimentoDTO.getCarboidratos();
