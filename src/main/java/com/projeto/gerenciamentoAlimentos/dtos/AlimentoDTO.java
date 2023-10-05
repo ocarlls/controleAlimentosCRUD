@@ -13,8 +13,8 @@ public class AlimentoDTO {
     private String categoria;
     @NotNull
     private int calorias;
-    private double proteina;
-    private double carboidratos;
-    private double gordura;
+    private float proteina;
+    private float carboidratos;
+    private float gordura;
 }
 
