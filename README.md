@@ -8,19 +8,19 @@ Atualmente sistema possui duas entidades principais:
 
 ### Usuários
 
-- **Listar todos os usuários**: `GET /usuario/todos`
-- **Obter detalhes de um usuário específico**: `GET /usuario/busca/{id}`
-- **Criar um novo usuário**: `POST /usuario/novo`
-- **Atualizar informações de um usuário**: `PUT /usuario/editar/{id}`
-- **Excluir um usuário**: `DELETE /usuario/delete/{id}`
+- **Listar todos os usuários**: `GET /usuario`
+- **Obter detalhes de um usuário específico**: `GET /usuario/{id}`
+- **Criar um novo usuário**: `POST /usuario`
+- **Atualizar informações de um usuário**: `PUT /usuario/{id}`
+- **Excluir um usuário**: `DELETE /usuario/{id}`
 
 ### Alimento
 
-- **Listar todos os alimentos**: `GET /comida/todos`
-- **Obter detalhes de um alimento específico**: `GET /comida/busca/{id}`
-- **Criar um novo alimento**: `POST /comida/novo`
-- **Atualizar informações de um alimento**: `PUT /comida/editar/{id}`
-- **Excluir um alimento**: `DELETE /comida/delete/{id}`
+- **Listar todos os alimentos**: `GET /comida`
+- **Obter detalhes de um alimento específico**: `GET /comida/{id}`
+- **Criar um novo alimento**: `POST /comida`
+- **Atualizar informações de um alimento**: `PUT /comida/{id}`
+- **Excluir um alimento**: `DELETE /comida/{id}`
 
 ## Tecnologias Utilizadas
 Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
