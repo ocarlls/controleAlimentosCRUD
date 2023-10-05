@@ -15,18 +15,9 @@ public class Alimento implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAlimento;
     private String nome;
-    private String categoria;
-    private float calorias;
-    private float proteina;
-    private float carboidratos;
-    private float gordura;
+    private Macronutrientes macronutrientes;
 
     public Alimento(AlimentoDTO alimentoDTO) {
-        this.nome = alimentoDTO.getNome();
-        this.categoria = alimentoDTO.getCategoria();
-        this.carboidratos = alimentoDTO.getCarboidratos();
-        this.proteina = alimentoDTO.getProteina();
-        this.gordura = alimentoDTO.getGordura();
-        this.calorias = alimentoDTO.getCalorias();
+        this.setNome(alimentoDTO.getNome());
     }
 }
