@@ -1,10 +1,17 @@
-# Gerenciador de Usuários e Alimentos - API REST
-Este é um projeto de API REST desenvolvido com o objetivo principal de aprender e consolidar os conceitos de arquitetura de camadas e API REST utilizando tecnologias como Spring Boot, Hibernate, Lombok e PostgreSQL. O projeto consiste em um sistema de gerenciamento de usuários e alimentos.
+# Controle Alimentar e Dietético
+Este é um projeto em construção de um API REST desenvolvido com o objetivo principal de aprender e consolidar os conceitos 
+de arquitetura de camadas e API REST utilizando tecnologias como Spring Boot, Hibernate, Lombok e PostgreSQL.
+Inspirado pelo popular aplicativo MyFitnessPal. O projeto consiste em um sistema de gerenciamento de dieta com o principal foco no controle de ingestão calórica diária 
+e macronutrientes. Buscando oferece uma maneira conveniente de registrar informações sobre o que você come e bebe. 
 
 ## Funcionalidades
+### Diagrama de caso de uso
 <img src="/src/main/resources/pics/casoDeUso.png" alt="Diagrama de Caso de Uso">
 
-Atualmente sistema possui duas entidades principais:
+### Diagrama de classes
+<img src="/src/main/resources/pics/classes.png" alt="Diagrama de Classes">
+
+Atualmente, o projeto inclui as seguintes funcionalidades:
 
 ### Usuários
 
@@ -22,6 +29,17 @@ Atualmente sistema possui duas entidades principais:
 - **Atualizar informações de um alimento**: `PUT /comida/{id}`
 - **Excluir um alimento**: `DELETE /comida/{id}`
 
+## Funcionalidades Futuras
+Tenho o foco de expandir este projeto para incluir todas as funcionalidades abrangentes de controle de dieta e condicionamento físico, semelhantes ao MyFitnessPal. 
+Algumas das funcionalidades planejadas incluem:
+
+- **Registro de Refeições:** Os usuários poderão registrar suas refeições, especificando os alimentos e as quantidades consumidas.
+
+- **Contagem de Calorias e Nutrientes:** O aplicativo calculará automaticamente a ingestão de calorias e nutrientes com base nas informações inseridas.
+
+- **Planejamento de Refeições:** Os usuários poderão criar planos de refeições personalizados para atender às suas metas nutricionais.
+
+- **Relatórios e Gráficos:** Visualização de dados e estatísticas para acompanhar o progresso ao longo do tempo.
 ## Tecnologias Utilizadas
 Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
 
