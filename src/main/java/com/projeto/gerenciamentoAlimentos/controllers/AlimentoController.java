@@ -2,6 +2,7 @@ package com.projeto.gerenciamentoAlimentos.controllers;
 
 import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
 import com.projeto.gerenciamentoAlimentos.models.Alimento;
+import com.projeto.gerenciamentoAlimentos.models.Macronutrientes;
 import com.projeto.gerenciamentoAlimentos.services.AlimentoService;
 import com.projeto.gerenciamentoAlimentos.services.impl.AlimentoServiceImpl;
 import org.springframework.beans.BeanUtils;
@@ -24,6 +25,7 @@ public class AlimentoController {
     @PostMapping
     public ResponseEntity<Object> iserirComida(@RequestBody @Valid AlimentoDTO alimentoDTO){
         var alimentoModel = new Alimento(alimentoDTO);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(alimentoModel));
     }
 

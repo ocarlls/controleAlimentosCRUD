@@ -1,9 +1,19 @@
 package com.projeto.gerenciamentoAlimentos.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Embeddable;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Embeddable
 public class Macronutrientes {
-    private String categoria;
-    private float calorias;
+    private float kcal;
     private float proteina;
-    private float carboidratos;
+    private float carboidrato;
     private float gordura;
+
 }
