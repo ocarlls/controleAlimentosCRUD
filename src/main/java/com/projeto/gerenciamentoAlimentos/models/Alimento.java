@@ -7,6 +7,8 @@ import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
 import lombok.*;
 
 import java.io.Serializable;
+import java.sql.Ref;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,6 +23,9 @@ public class Alimento implements Serializable {
     @JsonProperty("macronutrientes")
     @Embedded
     private Macronutrientes macronutrientes;
+
+    @ManyToMany
+    private List<Refeicao> refeicoes;
 
     public Alimento(AlimentoDTO alimentoDTO) {
         this.setNome(upperCase(alimentoDTO.getNome()));

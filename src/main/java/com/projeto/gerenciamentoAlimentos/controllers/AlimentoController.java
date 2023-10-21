@@ -3,12 +3,14 @@ package com.projeto.gerenciamentoAlimentos.controllers;
 import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
 import com.projeto.gerenciamentoAlimentos.models.Alimento;
 import com.projeto.gerenciamentoAlimentos.models.Macronutrientes;
+import com.projeto.gerenciamentoAlimentos.response.Response;
 import com.projeto.gerenciamentoAlimentos.services.AlimentoService;
 import com.projeto.gerenciamentoAlimentos.services.impl.AlimentoServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,47 +25,33 @@ public class AlimentoController {
     AlimentoServiceImpl service;
 
     @PostMapping
-    public ResponseEntity<Object> iserirComida(@RequestBody @Valid AlimentoDTO alimentoDTO){
-        var alimentoModel = new Alimento(alimentoDTO);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(alimentoModel));
+    @ResponseStatus(HttpStatus.CREATED)
+    private ResponseEntity<Response<Alimento>> post(@Valid @RequestBody Alimento alimento, BindingResult result) {
+        return service.save(alimento, result);
     }
 
     @GetMapping
-    public ResponseEntity<List<Alimento>> listarTodos(){
-        return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
+    @ResponseStatus(HttpStatus.CREATED)
+    private List<Alimento> getAll() {
+        return service.getAll();
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Object> listaUmAlimento(@PathVariable(value = "id") int id) {
-        Optional<Alimento> alimentoModelOptional = service.getById(id);
-        if(!alimentoModelOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Alimento não encontrado na base de dados");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(alimentoModelOptional);
+    @ResponseStatus(HttpStatus.CREATED)
+    private ResponseEntity<Response<Alimento>> getById(@PathVariable Integer id) {
+        return service.getById(id);
+    }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Response<Alimento>> put(@Valid @RequestBody Alimento alimento, BindingResult result) {
+        return service.save(alimento, result);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deletaAlimento(@PathVariable(value = "id") int id) {
-        Optional<Alimento> alimentoModelOptional = service.getById(id);
-        if(!alimentoModelOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Alimento não encontrado na base de dados");
-        }
-        service.delete(alimentoModelOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Alimento deletado com sucesso!!");
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Object> editarAlimento(@PathVariable(value = "id") int id,
-                                                @RequestBody @Valid AlimentoDTO alimentoDTO){
-        Optional<Alimento> alimentoModelOptional = service.getById(id);
-        if(!alimentoModelOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Alimento não encontrado na base de dados");
-        }
-        var alimentoModel = new Alimento();
-
-        BeanUtils.copyProperties(alimentoDTO, alimentoModel);
-        alimentoModel.setIdAlimento(alimentoModelOptional.get().getIdAlimento());
-        return ResponseEntity.status(HttpStatus.OK).body(service.save(alimentoModel));
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Response<Alimento>> delete(@PathVariable Integer id) {
+        return service.delete(id);
     }
 
 }
