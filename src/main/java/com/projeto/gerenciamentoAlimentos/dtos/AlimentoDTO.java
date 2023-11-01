@@ -1,6 +1,6 @@
 package com.projeto.gerenciamentoAlimentos.dtos;
 
-import com.projeto.gerenciamentoAlimentos.models.Macronutrientes;
+import com.projeto.gerenciamentoAlimentos.domain.food.Macronutrientes;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,12 +1,8 @@
 package com.projeto.gerenciamentoAlimentos.controllers;
 
-import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
-import com.projeto.gerenciamentoAlimentos.models.Alimento;
-import com.projeto.gerenciamentoAlimentos.models.Macronutrientes;
+import com.projeto.gerenciamentoAlimentos.domain.food.Alimento;
 import com.projeto.gerenciamentoAlimentos.response.Response;
-import com.projeto.gerenciamentoAlimentos.services.AlimentoService;
 import com.projeto.gerenciamentoAlimentos.services.impl.AlimentoServiceImpl;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")

@@ -1,6 +1,6 @@
 package com.projeto.gerenciamentoAlimentos.services.impl;
 
-import com.projeto.gerenciamentoAlimentos.models.Alimento;
+import com.projeto.gerenciamentoAlimentos.domain.food.Alimento;
 import com.projeto.gerenciamentoAlimentos.repositories.AlimentoRepository;
 import com.projeto.gerenciamentoAlimentos.response.Response;
 import com.projeto.gerenciamentoAlimentos.services.AlimentoService;

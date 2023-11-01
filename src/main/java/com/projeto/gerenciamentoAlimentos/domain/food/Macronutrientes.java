@@ -1,4 +1,4 @@
-package com.projeto.gerenciamentoAlimentos.models;
+package com.projeto.gerenciamentoAlimentos.domain.food;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

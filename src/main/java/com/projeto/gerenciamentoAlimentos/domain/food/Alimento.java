@@ -1,4 +1,4 @@
-package com.projeto.gerenciamentoAlimentos.models;
+package com.projeto.gerenciamentoAlimentos.domain.food;
 
 import javax.persistence.*;
 
@@ -7,13 +7,12 @@ import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
 import lombok.*;
 
 import java.io.Serializable;
-import java.sql.Ref;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "tbFoods")
+@Table(name = "alimentos")
 public class Alimento implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAlimento;
