@@ -1,20 +1,18 @@
 package com.projeto.gerenciamentoAlimentos.dtos;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import com.projeto.gerenciamentoAlimentos.domain.food.Macronutrientes;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.Embedded;
 
 @Getter
 @Setter
 public class AlimentoDTO {
-    @NotBlank
     private String nome;
-    private String categoria;
-    @NotNull
-    private int calorias;
-    private float proteina;
-    private float carboidratos;
-    private float gordura;
+    private String marca;
+    private float porcao;
+    @Embedded
+    private Macronutrientes macronutrientes;
 }
 
