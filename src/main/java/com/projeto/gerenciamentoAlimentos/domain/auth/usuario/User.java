@@ -1,52 +1,44 @@
-package com.projeto.gerenciamentoAlimentos.domain.user;
+package com.projeto.gerenciamentoAlimentos.domain.auth.usuario;
 
-import lombok.*;
+import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements Serializable, UserDetails{
-    private static final long serialVersionUID = 1L;
-
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id_usuario;
-    @Column(nullable = false, unique = true)
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements UserDetails {
+    @Id@GeneratedValue
+    private UUID id;
     private String login;
-    @Column(nullable = false)
-    private String senha;
+    private String password;
     private UserRole role;
 
-    public Usuario(String login, String senha, UserRole role) {
+    public User(String login, String password, UserRole role){
         this.login = login;
-        this.senha = senha;
+        this.password = password;
         this.role = role;
     }
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
     public String getUsername() {
-        return this.login;
+        return login;
     }
 
     @Override

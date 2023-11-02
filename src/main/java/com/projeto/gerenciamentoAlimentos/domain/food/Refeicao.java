@@ -1,7 +1,5 @@
 package com.projeto.gerenciamentoAlimentos.domain.food;
 
-import com.projeto.gerenciamentoAlimentos.domain.food.Alimento;
-import com.projeto.gerenciamentoAlimentos.domain.food.Macronutrientes;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

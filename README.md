@@ -15,11 +15,11 @@ Atualmente, o projeto inclui as seguintes funcionalidades:
 
 ### Usuários
 
-- **Listar todos os usuários**: `GET /usuario`
-- **Obter detalhes de um usuário específico**: `GET /usuario/{id}`
-- **Criar um novo usuário**: `POST /usuario`
-- **Atualizar informações de um usuário**: `PUT /usuario/{id}`
-- **Excluir um usuário**: `DELETE /usuario/{id}`
+- **Listar todos os usuários**: `GET /user`
+- **Obter detalhes de um usuário específico**: `GET /user/{id}`
+- **Criar um novo usuário**: `POST /user`
+- **Atualizar informações de um usuário**: `PUT /user/{id}`
+- **Excluir um usuário**: `DELETE /user/{id}`
 
 ### Alimento
 
