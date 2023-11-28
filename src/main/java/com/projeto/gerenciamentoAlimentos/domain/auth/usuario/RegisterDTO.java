@@ -9,4 +9,7 @@ public class RegisterDTO{
         private String login;
         private String password;
         private UserRole role;
+        private int idade;
+        private float peso;
+        private float altura;
 }

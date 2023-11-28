@@ -4,6 +4,7 @@ import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "usuarios")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class User implements UserDetails {
@@ -23,11 +25,17 @@ public class User implements UserDetails {
     private String login;
     private String password;
     private UserRole role;
+    private int idade;
+    private float peso;
+    private float altura;
 
-    public User(String login, String password, UserRole role){
+    public User(String login, String password, UserRole role, int idade, float peso, float altura){
         this.login = login;
         this.password = password;
         this.role = role;
+        this.idade = idade;
+        this.peso = peso;
+        this.altura = altura;
     }
 
     @Override
