@@ -23,8 +23,6 @@ public class Alimento implements Serializable {
     @Embedded
     private Macronutrientes macronutrientes;
 
-    @ManyToMany
-    private List<Refeicao> refeicoes;
 
     public Alimento(AlimentoDTO alimentoDTO) {
         this.setNome(upperCase(alimentoDTO.getNome()));
