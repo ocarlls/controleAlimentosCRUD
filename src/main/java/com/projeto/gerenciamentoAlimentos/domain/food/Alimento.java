@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Entity
+@Entity(name = "Alimentos")
 @Table(name = "alimentos")
 public class Alimento implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
