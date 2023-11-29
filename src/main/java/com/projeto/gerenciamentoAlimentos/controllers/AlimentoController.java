@@ -49,4 +49,9 @@ public class AlimentoController {
         return service.delete(id);
     }
 
+    @GetMapping("/search")
+    public List<String> searchByName(@RequestParam String nome){
+        return service.search(nome);
+    }
+
 }

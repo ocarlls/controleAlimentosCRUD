@@ -14,4 +14,5 @@ public interface AlimentoService {
     public List<Alimento> getAll();
     public ResponseEntity<Response<Alimento>> getById(Integer id);
     public ResponseEntity<Response<Alimento>> delete(Integer id);
+    public List<String> search(String keyword);
 }

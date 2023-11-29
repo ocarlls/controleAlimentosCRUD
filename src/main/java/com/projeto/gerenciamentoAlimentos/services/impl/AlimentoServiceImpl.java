@@ -66,4 +66,9 @@ public class AlimentoServiceImpl implements AlimentoService {
         response.setData(obj);
         return ResponseEntity.ok(response);
     }
+
+    @Override
+    public List<String> search(String keyword) {
+        return repository.search(keyword);
+    }
 }

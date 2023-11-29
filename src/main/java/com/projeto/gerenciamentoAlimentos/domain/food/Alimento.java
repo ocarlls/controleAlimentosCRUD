@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Entity
+@Entity(name = "Alimentos")
 @Table(name = "alimentos")
 public class Alimento implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +23,6 @@ public class Alimento implements Serializable {
     @Embedded
     private Macronutrientes macronutrientes;
 
-    @ManyToMany
-    private List<Refeicao> refeicoes;
 
     public Alimento(AlimentoDTO alimentoDTO) {
         this.setNome(upperCase(alimentoDTO.getNome()));
