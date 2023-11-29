@@ -1,6 +1,7 @@
 package com.projeto.gerenciamentoAlimentos.services.impl;
 
 import com.projeto.gerenciamentoAlimentos.domain.food.Alimento;
+import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
 import com.projeto.gerenciamentoAlimentos.repositories.AlimentoRepository;
 import com.projeto.gerenciamentoAlimentos.response.Response;
 import com.projeto.gerenciamentoAlimentos.services.AlimentoService;
@@ -19,15 +20,16 @@ public class AlimentoServiceImpl implements AlimentoService {
     AlimentoRepository repository;
 
     @Override
-    public ResponseEntity<Response<Alimento>> save(@Valid Alimento alimento, BindingResult result) {
+    public ResponseEntity<Response<Alimento>> save(@Valid AlimentoDTO alimentoDTO, BindingResult result) {
         Response<Alimento> response = new Response<Alimento>();
-        response.setData(alimento);
         if (result.hasErrors()) {
             for (ObjectError erros : result.getAllErrors()) {
                 response.getErrors().add(erros.getDefaultMessage());
             }
             return ResponseEntity.badRequest().body(response);
         }
+        Alimento alimento = new Alimento(alimentoDTO);
+        response.setData(alimento);
         repository.save(alimento);
         return ResponseEntity.ok(response);
     }
@@ -69,6 +71,13 @@ public class AlimentoServiceImpl implements AlimentoService {
 
     @Override
     public List<String> search(String keyword) {
+        keyword = upperCase(keyword);
         return repository.search(keyword);
+    }
+    private static String upperCase(String str) {
+        if (str == null) {
+            return null;
+        }
+        return str.toUpperCase();
     }
 }

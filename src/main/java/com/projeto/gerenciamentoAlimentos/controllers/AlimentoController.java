@@ -1,6 +1,7 @@
 package com.projeto.gerenciamentoAlimentos.controllers;
 
 import com.projeto.gerenciamentoAlimentos.domain.food.Alimento;
+import com.projeto.gerenciamentoAlimentos.dtos.AlimentoDTO;
 import com.projeto.gerenciamentoAlimentos.response.Response;
 import com.projeto.gerenciamentoAlimentos.services.impl.AlimentoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class AlimentoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    private ResponseEntity<Response<Alimento>> post(@Valid @RequestBody Alimento alimento, BindingResult result) {
-        return service.save(alimento, result);
+    private ResponseEntity<Response<Alimento>> post(@Valid @RequestBody AlimentoDTO alimentoDTO, BindingResult result) {
+        return service.save(alimentoDTO, result);
     }
 
     @GetMapping
@@ -39,8 +40,8 @@ public class AlimentoController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Response<Alimento>> put(@Valid @RequestBody Alimento alimento, BindingResult result) {
-        return service.save(alimento, result);
+    public ResponseEntity<Response<Alimento>> put(@Valid @RequestBody AlimentoDTO alimentoDTO, BindingResult result) {
+        return service.save(alimentoDTO, result);
     }
 
     @DeleteMapping("/{id}")
